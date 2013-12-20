@@ -7,7 +7,6 @@ asm("setPin:""\n\t"
     "NOP"		   "\n\t"
 	"NOP"		   "\n\t"
 	"NOP"		   "\n\t"
-	"NOP"	   "\n\t"
     "ldi R16,8"   "\n\t"
 	"cas1:"	   "\n\t"
 	"NOP"		   "\n\t"
@@ -23,7 +22,7 @@ asm("clrPin:""\n\t"
 	"NOP"		   "\n\t"
 	"NOP"		   "\n\t"
 	"NOP"	   "\n\t"
-    "ldi R16,8"   "\n\t"
+    "ldi R16,9"   "\n\t"
 	"cas2:"	   "\n\t"
 	"NOP"		   "\n\t"
     "dec R16"	   "\n\t"
@@ -124,13 +123,23 @@ char klavesnicaPor(){
 }
 int main(void){
 setup();
-unsigned char dmx[40];
-int por;
+unsigned char dmx[100];
+int por=0;
+int por1=0;
 int dir=0;
+int dir8=0;
+int test = 2;
+int por1hod=3;
+int dva =0;
+int rgb[4];
 unsigned char jas = 255;
-char last_push='0';
-for(por=0;por<40;por++) dmx[por] = 0;
-		sendDMX(dmx,30);
+char last_push='-1';
+for(por=0;por<41;por++) dmx[por] = 0;
+		sendDMX(dmx,41);
+rgb[0]=test;
+rgb[1]=test;
+rgb[2]=test;
+rgb[3]=0;
 while(1){
 	switch(klavesnicaPor()){
 		case '1':dmx[0] = 0;		//pas
@@ -164,14 +173,21 @@ while(1){
     			 dmx[25]=200;       
 				 dmx[26]=250;	
 				  //------------------------ 
-				  dmx[27]=70;		//1x reflektor
+				  dmx[27]=0;		//1x reflektor
 				  dmx[28]=0;
-				  dmx[29]=70;     
+				  dmx[29]=0;     
     			  dmx[30]=0;      
     			  dmx[31]=0;       
     			  dmx[32]=0;       
-    			  dmx[33]=0;       
-				  dmx[34]=0;	
+    			  dmx[33]=200;       
+				  dmx[34]=250;	
+				  //------------------------ 	
+				  dmx[35]=0;		//2x reflektor
+				  dmx[36]=0;
+				  dmx[37]=0;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;           
+				  dmx[40]=255;	
 				  //------------------------ 	
 				 last_push = '1';
 				 break;
@@ -217,7 +233,15 @@ while(1){
     			  dmx[32]=0;       
     			  dmx[33]=0;       
 				  dmx[34]=255;	
-				  //------------------------ 
+				  //------------------------
+				  dmx[35]=0;		//2x reflektor
+				  dmx[36]=jas;
+				  dmx[37]=0;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;       	
+				  //------------------------  
+
 				 last_push = '3';
 				 break;
 //-----------------------------------------------------------    
@@ -260,6 +284,13 @@ while(1){
     			  dmx[32]=0;       
     			  dmx[33]=0;       
 				  dmx[34]=255;	
+				  //------------------------ 
+				  dmx[35]=jas;		//2x reflektor
+				  dmx[36]=0;
+				  dmx[37]=0;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;       	
 				  //------------------------ 
 				 last_push = '4';
 				 break;
@@ -304,6 +335,13 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=255;	
 				  //------------------------ 
+				  dmx[35]=jas;		//2x reflektor
+				  dmx[36]=jas;
+				  dmx[37]=0;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;       	
+				  //------------------------ 
 				 last_push = '5';
 				 break;
 //-----------------------------------------------------------   
@@ -346,6 +384,13 @@ while(1){
     			  dmx[32]=0;       
     			  dmx[33]=0;       
 				  dmx[34]=255;	
+				  //------------------------ 
+				  dmx[35]=0;		//2x reflektor
+				  dmx[36]=0;
+				  dmx[37]=jas;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;       
 				  //------------------------ 
 				 last_push = '6';
 				 break;
@@ -390,39 +435,46 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=255;	
 				  //------------------------ 
+				  dmx[35]=jas;		//2x reflektor
+				  dmx[36]=0;
+				  dmx[37]=jas;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;       	
+				  //------------------------ 
 				  last_push = '7';
 				  break;
 //-----------------------------------------------------------  
 		case '8': dmx[0] = 0;		//pas
 				  dmx[1] = 0;
 				  dmx[2] = 0;
-				  dmx[3] = 68;
-    			  dmx[4] = 240;
+				  dmx[3] = 0;
+    			  dmx[4] = 0;
 				  dmx[5] = 0;
-    			  dmx[6] = 255;
-				  //-----------------------
+    			  dmx[6] = 0;
+						  //-----------------------
     			  dmx[7] = 255;	//kruhy
     			  dmx[8] = 36;
-    			  dmx[9] = 255;
+    			  dmx[9] = 122;
     			  dmx[10] = 0;
 				  //-----------------------
     			  dmx[11]=0;		//polgula
 				  dmx[12]=255;
 				  dmx[13]=0;     
     			  dmx[14]=0;      
-    			  dmx[15]=255;       
+    			  dmx[15]=0;       
     			  dmx[16]=0;       
-    			  dmx[17]=255;       
+    			  dmx[17]=0;       
 				  dmx[18]=0;
-				  //------------------------ 
+					//------------------------ 
 				  dmx[19]=0;		//reflektory
 				  dmx[20]=0;
 				  dmx[21]=0;     
     			  dmx[22]=0;      
     			  dmx[23]=0;       
     			  dmx[24]=0;       
-    			  dmx[25]=20;       
-				  dmx[26]=150;	
+    			  dmx[25]=0;       
+				  dmx[26]=0;	
 				  //------------------------ 
 				  dmx[27]=0;		//1x reflektor
 				  dmx[28]=0;
@@ -430,19 +482,30 @@ while(1){
     			  dmx[30]=0;      
     			  dmx[31]=0;       
     			  dmx[32]=0;       
-    			  dmx[33]=80;       
-				  dmx[34]=100;	
+    			  dmx[33]=0;       
+				  dmx[34]=0;	
 				  //------------------------ 
+				  dmx[35]=0;		//2x reflektor
+				  dmx[36]=0;
+				  dmx[37]=0;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;    
+				  dir8=0;
+				  rgb[0]=test;
+				  rgb[1]=test;
+				  rgb[2]=test;
+				  rgb[3] = 0;   	
 				  last_push = '8';
 				  break;	
 //-----------------------------------------------------------  
 		case '9': dmx[0] = 0;		//pas
 				  dmx[1] = 0;
 				  dmx[2] = 0;
-				  dmx[3] = 100;
-    			  dmx[4] = 230;
+				  dmx[3] = 0;
+    			  dmx[4] = 0;
 				  dmx[5] = 0;
-    			  dmx[6] = 255;
+    			  dmx[6] = 0;
 				  //-----------------------
     			  dmx[7] = 255;	//kruhy
     			  dmx[8] = 0;
@@ -452,63 +515,20 @@ while(1){
     			  dmx[11]=0;		//polgula
 				  dmx[12]=255;
 				  dmx[13]=0;     
-    			  dmx[14]=255;      
+    			  dmx[14]=0;      
     			  dmx[15]=0;       
     			  dmx[16]=0;       
-    			  dmx[17]=255;       
-				  dmx[18]=55;
-				  //------------------------ 
-				  dmx[19]=0;		//3x reflektory
-				  dmx[20]=0;
-				  dmx[21]=0;     
-    			  dmx[22]=0;      
-    			  dmx[23]=0;       
-    			  dmx[24]=0;       
-    			  dmx[25]=160;       
-				  dmx[26]=215;	
-				  //------------------------ 
-				  dmx[27]=0;		//1x reflektor
-				  dmx[28]=0;
-				  dmx[29]=0;     
-    			  dmx[30]=0;
-				        
-    			  dmx[31]=0;       
-    			  dmx[32]=0;       
-    			  dmx[33]=150;       
-				  dmx[34]=1;	
-				  //------------------------ 
-				  last_push = '9';	break;
-//-----------------------------------------------------------	  	
-		case '0': dmx[0] = 0;		//pas
-				  dmx[1] = 0;
-				  dmx[2] = 0;
-				  dmx[3] = 180;
-    			  dmx[4] = 220;
-				  dmx[5] = 0;
-    			  dmx[6] = 255;
-				  //-----------------------
-    			  dmx[7] = 255;	//kruhy
-    			  dmx[8] = 0;
-    			  dmx[9] = 255;
-    			  dmx[10] = 0;
-				  //-----------------------
-    			  dmx[11]=0;		//polgula
-				  dmx[12]=255;
-				  dmx[13]=0;     
-    			  dmx[14]=255;      
-    			  dmx[15]=0;       
-    			  dmx[16]=0;       
-    			  dmx[17]=255;       
-				  dmx[18]=40;
-				  //------------------------ 
+    			  dmx[17]=0;       
+				  dmx[18]=0;
+		//------------------------ 
 				  dmx[19]=0;		//reflektory
 				  dmx[20]=0;
 				  dmx[21]=0;     
     			  dmx[22]=0;      
     			  dmx[23]=0;       
-    			  dmx[24]=210;       
+    			  dmx[24]=0;       
     			  dmx[25]=0;       
-				  dmx[26]=220;	
+				  dmx[26]=0;	
 				  //------------------------ 
 				  dmx[27]=0;		//1x reflektor
 				  dmx[28]=0;
@@ -516,21 +536,224 @@ while(1){
     			  dmx[30]=0;      
     			  dmx[31]=0;       
     			  dmx[32]=0;       
-    			  dmx[33]=80;       
-				  dmx[34]=100;	
+    			  dmx[33]=0;       
+				  dmx[34]=0;	
 				  //------------------------ 
+				  dmx[35]=0;		//2x reflektor
+				  dmx[36]=0;
+				  dmx[37]=0;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;  
+				  dir8=0;
+				  rgb[0]=test;
+				  rgb[1]=test;
+				  rgb[2]=test;
+				  rgb[3] = 0;   
+				  last_push = '9';	break;
+//-----------------------------------------------------------	  	
+		case '0': dmx[0] = 0;		//pas
+				  dmx[1] = 0;
+				  dmx[2] = 0;
+				  dmx[3] = 0;
+    			  dmx[4] = 0;
+				  dmx[5] = 0;
+    			  dmx[6] = 0;
+						  //-----------------------
+    			  dmx[7] = 255;	//kruhy
+    			  dmx[8] = 36;
+    			  dmx[9] = 31;
+    			  dmx[10] = 0;
+				  //-----------------------
+    			  dmx[11]=0;		//polgula
+				  dmx[12]=255;
+				  dmx[13]=0;     
+    			  dmx[14]=0;      
+    			  dmx[15]=0;       
+    			  dmx[16]=0;       
+    			  dmx[17]=0;       
+				  dmx[18]=0;
+				//------------------------ 
+				  dmx[19]=0;		//reflektory
+				  dmx[20]=0;
+				  dmx[21]=0;     
+    			  dmx[22]=0;      
+    			  dmx[23]=0;       
+    			  dmx[24]=0;       
+    			  dmx[25]=0;       
+				  dmx[26]=0;	
+				  //------------------------ 
+				  dmx[27]=0;		//1x reflektor
+				  dmx[28]=0;
+				  dmx[29]=0;     
+    			  dmx[30]=0;      
+    			  dmx[31]=0;       
+    			  dmx[32]=0;       
+    			  dmx[33]=0;       
+				  dmx[34]=0;	
+				  //------------------------ 
+				  dmx[35]=0;		//2x reflektor
+				  dmx[36]=0;
+				  dmx[37]=0;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;  
+				  rgb[0]=test;
+				  rgb[1]=test;
+				  rgb[2]=test;
+				  rgb[3] = 0;   
+				  dir8=0;
 				  last_push = '0';	break;	
 //-----------------------------------------------------------  
 		case '_':for(por=0;por<27;por++) dmx[por]=0;
+				 for(por=35;por<41;por++) dmx[por]=0;
 				 last_push = '_';	break;
 //-----------------------------------------------------------  
 		case 'O': if (jas==255)	jas=30;
-				  else           jas=255;
+				  else          jas=255;
 				  _delay_ms(500);
 				  break;		
 //-----------------------------------------------------------  
 	}
-	if (last_push >= '3' && last_push <= '8'){
+		if(last_push == '8') {por1hod = 15;}
+		else if(last_push == '9') {por1hod = 7;}
+		else{	por1hod = 3;}
+	if(last_push == '8' || last_push == '9' || last_push == '0'){
+		if (por1>=por1hod){
+			if(dir8==0){
+				  dmx[0] += rgb[0] ;		//pas
+				  dmx[1] += rgb[1];
+				  dmx[2] += rgb[2];
+				  dmx[3] = 0;
+    			  dmx[4] = 0;
+				  dmx[5] = 0;
+				  dmx[6] = 255;
+				  //------------------------
+				  dmx[14]+=rgb[0];      
+    			  dmx[15]+=rgb[1];       
+    			  dmx[16]+=rgb[2];       
+    			  dmx[17]+=((rgb[0]*rgb[1]*rgb[2])/4);   
+				  //----------------- 
+				  dmx[19]+=rgb[0];		//reflektory
+				  dmx[20]+=rgb[1];
+				  dmx[21]+=rgb[2]; 
+				  dmx[22]+=((rgb[0]*rgb[1]*rgb[2])/4);  
+    			  dmx[23]=0;       
+    			  dmx[24]=0;       
+    			  dmx[25]=0;       
+				  dmx[26]=0; 
+				  //--------------------
+				  dmx[27]+=rgb[0];		//1x reflektor
+				  dmx[28]+=rgb[1];
+				  dmx[29]+=rgb[2];     
+    			  dmx[30]+=((rgb[0]*rgb[1]*rgb[2])/4);
+				  dmx[31]=0;       
+    			  dmx[32]=0;       
+    			  dmx[33]=0;       
+				  dmx[34]=0;
+				  //---------
+				  dmx[35]+=rgb[0];		//2x reflektor
+				  dmx[36]+=rgb[1];
+				  dmx[37]+=rgb[2];
+				  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;    
+				  rgb[3]+=test;
+			}
+			else{
+				if((dmx[0] > 0 || dmx[1] > 0 || dmx[2] > 0) && rgb[3]<230 ){
+				  dmx[0] -= rgb[0];		//pas
+				  dmx[1] -= rgb[1];
+				  dmx[2] -= rgb[2];	  
+				  }
+				  dmx[3] = 0;
+    			  dmx[4] = 0;
+				  dmx[5] = 0;
+    			  dmx[6] = 255;
+				  //------------------------
+				  dmx[14]-=rgb[0];      
+    			  dmx[15]-=rgb[1];       
+    			  dmx[16]-=rgb[2];       
+    			  dmx[17]-=((rgb[0]*rgb[1]*rgb[2])/4);  
+				  //------------------------ 
+				  dmx[19]-=rgb[0];		//reflektory
+				  dmx[20]-=rgb[1];
+				  dmx[21]-=rgb[2]; 
+				  dmx[22]-=((rgb[0]*rgb[1]*rgb[2])/4);      
+    			  dmx[23]=0;       
+    			  dmx[24]=0;       
+    			  dmx[25]=0;       
+				  dmx[26]=0; 
+				  //--------------------
+				  dmx[27]-=rgb[0];		//1x reflektor
+				  dmx[28]-=rgb[1];
+				  dmx[29]-=rgb[2];     
+    			  dmx[30]-=((rgb[0]*rgb[1]*rgb[2])/4);
+				  dmx[31]=0;       
+    			  dmx[32]=0;       
+    			  dmx[33]=0;       
+				  dmx[34]=0;
+				  //---------
+				  dmx[35]-=rgb[0];		//2x reflektor
+				  dmx[36]-=rgb[1];
+				  dmx[37]-=rgb[2];
+				  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;    
+				  rgb[3]-=test;
+			}
+			if(rgb[3]>=254){ dir8=1;}
+			else if(rgb[3] <= 0){ 
+				dir8=0;
+				dmx[0] = 0;		//pas
+				  dmx[1] = 0;
+				  dmx[2] = 0;
+				  dmx[3] = 0;
+    			  dmx[4] = 0;
+				  dmx[5] = 0;
+    			  dmx[6] = 0;
+				if(rgb[0] == test && rgb[1] == 0 && rgb[2] == 0){
+					rgb[0] = test;
+					rgb[1] = test;
+					rgb[2] = 0;
+
+				}
+				else if(rgb[0] == test && rgb[1] == test && rgb[2] == 0){
+					rgb[0] = 0;
+					rgb[1] = test;
+					rgb[2] = 0;
+				}
+				else if(rgb[0] == 0 && rgb[1] == test && rgb[2] == 0){
+					rgb[0] = 0;
+					rgb[1] = test;
+					rgb[2] = test;
+				}
+				else if(rgb[0] == 0 && rgb[1] == test && rgb[2] == test){
+					rgb[0] = test;
+					rgb[1] = 0;
+					rgb[2] = test;
+				}
+				else if(rgb[0] == test && rgb[1] == 0 && rgb[2] == test){
+					rgb[0] = 0;
+					rgb[1] = 0;
+					rgb[2] = test;
+				}
+				else if(rgb[0] == 0 && rgb[1] == 0 && rgb[2] == test){
+					rgb[0] = test;
+					rgb[1] = test;
+					rgb[2] = test;
+				}
+				else if(rgb[0] == test && rgb[1] == test && rgb[2] == test){
+					rgb[0] = test;
+					rgb[1] = 0;
+					rgb[2] = 0;
+				}
+			}
+			por1=0;
+		}
+		else{ por1++;}
+	}
+	if ((last_push >= '3' && last_push <= '8')){
 		if(por == 200){ 
 			if (dir == 0){
 				if (dmx[11]<100)	dmx[11]+=1;
@@ -538,6 +761,20 @@ while(1){
 			}
 			else{ 
 				if (dmx[11]>0)	dmx[11]-=1;
+    			else dir=0;
+			}
+			por = 0;
+		}
+		else por++;
+	}
+	else if ((last_push == '9' || last_push == '0')){
+		if(por >= 20){ 
+			if (dir == 0){
+				if (dmx[11]<100)	dmx[11]+=6;
+    			else dir =1;
+			}
+			else{ 
+				if (dmx[11]>0)	dmx[11]-=6;
     			else dir=0;
 			}
 			por = 0;
@@ -555,10 +792,10 @@ while(1){
 				  dmx[5] = 0;
     			  dmx[6] = 255;
 				  //-----------------------
-    			  dmx[7] = 255;	//kruhy
-    			  dmx[8] = 36;
+				  dmx[7] = 255;	//kruhy
+    			  dmx[8] = 0;
     			  dmx[9] = 255;
-    			  dmx[10] = 70;
+    			  dmx[10] = 0;
 				  //-----------------------
     			  dmx[11]=0;		//polgula
 				  dmx[12]=255;
@@ -587,10 +824,17 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=0;	
 				  //------------------------ 
+				  dmx[35]=255;		//2x reflektor
+				  dmx[36]=255;
+				  dmx[37]=255;     
+    			  dmx[38]=0;      
+    			  dmx[39]=0;       
+    			  dmx[40]=0;       	
+				  //------------------------ 
     			dir =1;
 			}
 			else{ 
-				for(por=0;por<36;por++) dmx[por]=0;
+				for(por=0;por<41;por++) dmx[por]=0;
 				dir = 0;
 			}
 			por = 0;
@@ -598,7 +842,7 @@ while(1){
 		else por++;
 	
 	}
-	sendDMX(dmx,35);	
+	sendDMX(dmx,41);	
 }
 
 
