@@ -134,8 +134,8 @@ int dva =0;
 int rgb[4];
 unsigned char jas = 255;
 char last_push='-1';
-for(por=0;por<41;por++) dmx[por] = 0;
-		sendDMX(dmx,41);
+for(por=0;por<42;por++) dmx[por] = 0;
+sendDMX(dmx,42);
 rgb[0]=test;
 rgb[1]=test;
 rgb[2]=test;
@@ -170,8 +170,8 @@ while(1){
     			 dmx[22]=0;      
     			 dmx[23]=0;       
     			 dmx[24]=0;       
-    			 dmx[25]=200;       
-				 dmx[26]=250;	
+    			 dmx[25]=240;       
+				 dmx[26]=240;	
 				  //------------------------ 
 				  dmx[27]=0;		//1x reflektor
 				  dmx[28]=0;
@@ -179,15 +179,16 @@ while(1){
     			  dmx[30]=0;      
     			  dmx[31]=0;       
     			  dmx[32]=0;       
-    			  dmx[33]=200;       
-				  dmx[34]=250;	
+    			  dmx[33]=150;       
+				  dmx[34]=185;	
 				  //------------------------ 	
-				  dmx[35]=0;		//2x reflektor
+				  dmx[35]=255;		//2x reflektor
 				  dmx[36]=0;
 				  dmx[37]=0;     
     			  dmx[38]=0;      
-    			  dmx[39]=0;           
-				  dmx[40]=255;	
+    			  dmx[39]=128;           
+				  dmx[40]=128;	
+				  dmx[41]=251; 
 				  //------------------------ 	
 				 last_push = '1';
 				 break;
@@ -234,14 +235,14 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=255;	
 				  //------------------------
-				  dmx[35]=0;		//2x reflektor
-				  dmx[36]=jas;
-				  dmx[37]=0;     
+				  dmx[35]=255;		//2x reflektor
+				  dmx[36]=0;
+				  dmx[37]=jas;     
     			  dmx[38]=0;      
     			  dmx[39]=0;       
     			  dmx[40]=0;       	
+				  dmx[41]=0; 
 				  //------------------------  
-
 				 last_push = '3';
 				 break;
 //-----------------------------------------------------------    
@@ -285,12 +286,13 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=255;	
 				  //------------------------ 
-				  dmx[35]=jas;		//2x reflektor
-				  dmx[36]=0;
+				  dmx[35]=255;		//2x reflektor
+				  dmx[36]=jas;
 				  dmx[37]=0;     
     			  dmx[38]=0;      
     			  dmx[39]=0;       
     			  dmx[40]=0;       	
+				  dmx[41]=0; 
 				  //------------------------ 
 				 last_push = '4';
 				 break;
@@ -335,12 +337,13 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=255;	
 				  //------------------------ 
-				  dmx[35]=jas;		//2x reflektor
+				  dmx[35]=255;		//2x reflektor
 				  dmx[36]=jas;
-				  dmx[37]=0;     
+				  dmx[37]=jas;     
     			  dmx[38]=0;      
     			  dmx[39]=0;       
     			  dmx[40]=0;       	
+				  dmx[41]=0; 
 				  //------------------------ 
 				 last_push = '5';
 				 break;
@@ -385,12 +388,13 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=255;	
 				  //------------------------ 
-				  dmx[35]=0;		//2x reflektor
+				  dmx[35]=255;		//2x reflektor
 				  dmx[36]=0;
-				  dmx[37]=jas;     
-    			  dmx[38]=0;      
+				  dmx[37]=0;     
+    			  dmx[38]=jas;      
     			  dmx[39]=0;       
     			  dmx[40]=0;       
+				  dmx[41]=0; 
 				  //------------------------ 
 				 last_push = '6';
 				 break;
@@ -435,12 +439,13 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=255;	
 				  //------------------------ 
-				  dmx[35]=jas;		//2x reflektor
-				  dmx[36]=0;
-				  dmx[37]=jas;     
-    			  dmx[38]=0;      
+				  dmx[35]=255;		//2x reflektor
+				  dmx[36]=jas;
+				  dmx[37]=0;     
+    			  dmx[38]=jas;      
     			  dmx[39]=0;       
     			  dmx[40]=0;       	
+				  dmx[41]=0; 
 				  //------------------------ 
 				  last_push = '7';
 				  break;
@@ -490,7 +495,8 @@ while(1){
 				  dmx[37]=0;     
     			  dmx[38]=0;      
     			  dmx[39]=0;       
-    			  dmx[40]=0;    
+    			  dmx[40]=0;
+				  dmx[41]=0;     
 				  dir8=0;
 				  rgb[0]=test;
 				  rgb[1]=test;
@@ -544,7 +550,8 @@ while(1){
 				  dmx[37]=0;     
     			  dmx[38]=0;      
     			  dmx[39]=0;       
-    			  dmx[40]=0;  
+    			  dmx[40]=0; 
+				  dmx[41]=0;  
 				  dir8=0;
 				  rgb[0]=test;
 				  rgb[1]=test;
@@ -597,7 +604,8 @@ while(1){
 				  dmx[37]=0;     
     			  dmx[38]=0;      
     			  dmx[39]=0;       
-    			  dmx[40]=0;  
+    			  dmx[40]=0;
+				  dmx[41]=0;   
 				  rgb[0]=test;
 				  rgb[1]=test;
 				  rgb[2]=test;
@@ -652,12 +660,13 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=0;
 				  //---------
-				  dmx[35]+=rgb[0];		//2x reflektor
-				  dmx[36]+=rgb[1];
-				  dmx[37]+=rgb[2];
-				  dmx[38]=0;      
+				  dmx[35]=255;		//2x reflektor
+				  dmx[36]+=rgb[0];
+				  dmx[37]+=rgb[1];
+				  dmx[38]+=rgb[2];      
     			  dmx[39]=0;       
-    			  dmx[40]=0;    
+    			  dmx[40]=0; 
+				  dmx[41]=0;    
 				  rgb[3]+=test;
 			}
 			else{
@@ -694,12 +703,13 @@ while(1){
     			  dmx[33]=0;       
 				  dmx[34]=0;
 				  //---------
-				  dmx[35]-=rgb[0];		//2x reflektor
-				  dmx[36]-=rgb[1];
-				  dmx[37]-=rgb[2];
-				  dmx[38]=0;      
+				  dmx[35]=255;		//2x reflektor
+				  dmx[36]-=rgb[0];
+				  dmx[37]-=rgb[1];
+				  dmx[38]-=rgb[2];      
     			  dmx[39]=0;       
-    			  dmx[40]=0;    
+    			  dmx[40]=0;   
+				  dmx[41]=0;  
 				  rgb[3]-=test;
 			}
 			if(rgb[3]>=254){ dir8=1;}
@@ -782,7 +792,7 @@ while(1){
 		else por++;
 	}
 	else if(last_push == '2'){
-		if(por > 30){ 
+		if(por > 15){//por > 30 
 			if (dir == 0){
  				  dmx[0] = 255;		//pas
 				  dmx[1] = 255;
@@ -827,14 +837,15 @@ while(1){
 				  dmx[35]=255;		//2x reflektor
 				  dmx[36]=255;
 				  dmx[37]=255;     
-    			  dmx[38]=0;      
+    			  dmx[38]=255;      
     			  dmx[39]=0;       
-    			  dmx[40]=0;       	
+    			  dmx[40]=0;    
+				  dmx[41]=0;       	
 				  //------------------------ 
     			dir =1;
 			}
 			else{ 
-				for(por=0;por<41;por++) dmx[por]=0;
+				for(por=0;por<42;por++) dmx[por]=0;
 				dir = 0;
 			}
 			por = 0;
@@ -842,7 +853,7 @@ while(1){
 		else por++;
 	
 	}
-	sendDMX(dmx,41);	
+	sendDMX(dmx,42);	
 }
 
 

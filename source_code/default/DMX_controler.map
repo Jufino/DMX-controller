@@ -120,7 +120,7 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xcea
+.text           0x00000000      0xd04
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -197,7 +197,7 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a
                 0x0000008e                __vector_16
                 0x0000008e                __vector_18
                 0x0000008e                __vector_20
- .text          0x00000092      0xc06 DMX_controler.o
+ .text          0x00000092      0xc20 DMX_controler.o
                 0x00000106                sendByte
                 0x000000d2                mabDMX
                 0x000000c4                breakDMX
@@ -206,26 +206,26 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a
                 0x0000013e                sendDMX
                 0x000001dc                setup
                 0x00000252                klavesnicaPor
- .text          0x00000c98        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_divmodhi4.o)
- .text          0x00000c98        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
- .text          0x00000c98        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
- .text          0x00000c98        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
- .text          0x00000c98        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x00000c98                . = ALIGN (0x2)
+ .text          0x00000cb2        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_divmodhi4.o)
+ .text          0x00000cb2        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+ .text          0x00000cb2        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000cb2        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000cb2        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x00000cb2                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00000c98       0x26 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_divmodhi4.o)
-                0x00000c98                __divmodhi4
-                0x00000c98                _div
- .text.libgcc   0x00000cbe        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000cbe        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000cbe        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000cbe       0x28 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x00000cbe                __udivmodhi4
-                0x00000ce6                . = ALIGN (0x2)
+ .text.libgcc   0x00000cb2       0x26 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_divmodhi4.o)
+                0x00000cb2                __divmodhi4
+                0x00000cb2                _div
+ .text.libgcc   0x00000cd8        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000cd8        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000cd8        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000cd8       0x28 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x00000cd8                __udivmodhi4
+                0x00000d00                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000ce6        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
-                0x00000ce6                exit
-                0x00000ce6                _exit
+ .fini9         0x00000d00        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+                0x00000d00                exit
+                0x00000d00                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -244,11 +244,11 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000ce6        0x4 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000d00        0x4 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000cea                _etext = .
+                0x00000d04                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000cea
+.data           0x00800060        0x0 load address 0x00000d04
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr5/crtm32.o
@@ -279,8 +279,8 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a
  *(.bss*)
  *(COMMON)
                 0x00800060                PROVIDE (__bss_end, .)
-                0x00000cea                __data_load_start = LOADADDR (.data)
-                0x00000cea                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000d04                __data_load_start = LOADADDR (.data)
+                0x00000d04                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800060        0x0
                 0x00800060                PROVIDE (__noinit_start, .)
@@ -358,18 +358,18 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr5\libgcc.a
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x227 DMX_controler.o
 
-.debug_line     0x00000000     0x1512
+.debug_line     0x00000000     0x1572
  *(.debug_line)
- .debug_line    0x00000000     0x1512 DMX_controler.o
+ .debug_line    0x00000000     0x1572 DMX_controler.o
 
 .debug_frame    0x00000000       0x90
  *(.debug_frame)
  .debug_frame   0x00000000       0x90 DMX_controler.o
 
-.debug_str      0x00000000      0x184
+.debug_str      0x00000000      0x167
  *(.debug_str)
- .debug_str     0x00000000      0x184 DMX_controler.o
-                                0x1bd (size before relaxing)
+ .debug_str     0x00000000      0x167 DMX_controler.o
+                                0x1a0 (size before relaxing)
 
 .debug_loc      0x00000000      0x1b9
  *(.debug_loc)
